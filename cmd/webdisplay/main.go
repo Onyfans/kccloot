@@ -2,10 +2,10 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"git.fputs.com/fputs/kccloot/pkg/raiders"
 	"git.fputs.com/fputs/kccloot/pkg/util"
 	_ "github.com/go-sql-driver/mysql"
+	"html/template"
 	"net/http"
 	"os"
 	"time"
@@ -47,7 +47,38 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		rs = append(rs, r)
 	}
 
-	for _, r := range rs {
-		fmt.Fprintf(w, "%s: %d\n", r.Name, r.Points)
+	const tmpl = `
+	<style>
+	body {
+		background-color: #282828;
+		color: #ebdbb2;
 	}
+	h1 { color: #83a598; }
+	table, th, td { 
+    	border: 1px solid #504945;
+		text-align: left; 
+	}
+	table { width: 50%; }	
+	th { color: #d65d03; }
+	</style>
+	<h1>KCC Loot Tracker</h1>
+	<table>
+	<tr>
+		<th>Name</th>
+		<th>Points</th>
+	</tr>
+		{{range .}}
+			<tr><td>{{.Name}}</td><td>{{.Points}}</td></tr>
+		{{end}}
+	</table>`
+	t := template.Must(template.New("").Parse(tmpl))
+	if err := t.Execute(w, rs); err != nil {
+		util.CheckErr(err)
+	}
+
+	/*
+		for _, r := range rs {
+			fmt.Fprintf(w, "%s: %d\n", r.Name, r.Points)
+		}
+	*/
 }
