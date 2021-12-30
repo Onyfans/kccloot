@@ -75,10 +75,4 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	if err := t.Execute(w, rs); err != nil {
 		util.CheckErr(err)
 	}
-
-	/*
-		for _, r := range rs {
-			fmt.Fprintf(w, "%s: %d\n", r.Name, r.Points)
-		}
-	*/
 }
