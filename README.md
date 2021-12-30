@@ -1,5 +1,13 @@
 # Karazhan Chess Club Raid Tracker
 
-This program controls the KCC raid tracker database.
+These programs control the KCC raid tracker database.
 
-[A live output of the database can be seen here]()
+## kccloot
+
+A CLI interface for the loot tracker database
+
+## webview
+
+Provides a webview of the `kcc.raiders` table
+
+[The webview can be found here](https://fputs.com/guild/raiddb)
