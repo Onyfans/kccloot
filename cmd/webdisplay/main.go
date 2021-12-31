@@ -48,19 +48,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	const tmpl = `
-	<style>
-	body {
-		background-color: #282828;
-		color: #ebdbb2;
-	}
-	h1 { color: #83a598; }
-	table, th, td { 
-    	border: 1px solid #504945;
-		text-align: left; 
-	}
-	table { width: 50%; }	
-	th { color: #d65d03; }
-	</style>
+	<head>
+		<link rel="stylesheet" href="https://fputs.com/webdisplay.css">
+		<title>KCC Loot Tracker</title>
+	</head>
 	<h1>KCC Loot Tracker</h1>
 	<table>
 	<tr>

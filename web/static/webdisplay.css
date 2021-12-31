@@ -1,0 +1,21 @@
+body {
+    background-color: #282828;
+    color: #ebdbb2;
+}
+
+h1 {
+    color: #83a598;
+}
+
+table, th, td {
+    border: 1px solid #504945;
+    text-align: left;
+}
+
+table {
+    width: 50%;
+}
+
+th {
+    color: #d65d03;
+}
