@@ -46,6 +46,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		util.CheckErr(err)
 		rs = append(rs, r)
 	}
+	raiders.SortSlice(rs)
 
 	const tmpl = `
 	<head>
