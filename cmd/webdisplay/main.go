@@ -42,7 +42,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	var rs []raiders.Raider
 	for rows.Next() {
 		var r raiders.Raider
-		err = rows.Scan(&r.Id, &r.Name, &r.Points)
+		err = rows.Scan(&r.Id, &r.Name, &r.Points, &r.Class, &r.Spec)
 		util.CheckErr(err)
 		rs = append(rs, r)
 	}
@@ -57,10 +57,12 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	<table>
 	<tr>
 		<th>Name</th>
+		<th>Class</th>
+		<th>Spec</th>
 		<th>Points</th>
 	</tr>
 		{{range .}}
-			<tr><td>{{.Name}}</td><td>{{.Points}}</td></tr>
+			<tr><td>{{.Name}}</td><td>{{.Class}}</td><td>{{.Spec}}</td><td>{{.Points}}</td></tr>
 		{{end}}
 	</table>`
 	t := template.Must(template.New("").Parse(tmpl))

@@ -6,6 +6,8 @@ type Raider struct {
 	Id     uint
 	Name   string
 	Points uint
+	Class  string
+	Spec   string
 }
 
 func SortSlice(rs []Raider) {
