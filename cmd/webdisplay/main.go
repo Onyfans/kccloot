@@ -49,6 +49,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	raiders.SortSlice(rs)
 
 	const tmpl = `
+	{{ $length := len . }}
 	<head>
 		<link rel="stylesheet" href="https://fputs.com/webdisplay.css">
 		<title>KCC Loot Tracker</title>
@@ -64,7 +65,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		{{range .}}
 			<tr><td>{{.Name}}</td><td>{{.Class}}</td><td>{{.Spec}}</td><td>{{.Points}}</td></tr>
 		{{end}}
-	</table>`
+	</table>
+	<p>Total Raiders: {{ $length }}</p>`
 	t := template.Must(template.New("").Parse(tmpl))
 	if err := t.Execute(w, rs); err != nil {
 		util.CheckErr(err)
