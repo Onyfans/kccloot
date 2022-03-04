@@ -3,8 +3,12 @@ body {
     color: #ebdbb2;
 }
 
-h1, h2 {
+h1 {
     color: #83a598;
+}
+
+h1 {
+    color: #d65d03;
 }
 
 table, th, td {
