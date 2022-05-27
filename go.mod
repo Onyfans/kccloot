@@ -1,4 +1,4 @@
-module git.fputs.com/fputs/kccloot
+module github.com/KarazhanChessClub/kccloot
 
 go 1.17
 

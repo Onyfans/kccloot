@@ -7,8 +7,8 @@ import (
 	"os"
 	"time"
 
-	"git.fputs.com/fputs/kccloot/pkg/raiders"
-	"git.fputs.com/fputs/kccloot/pkg/util"
+	"github.com/KarazhanChessClub/kccloot/pkg/raiders"
+	"github.com/KarazhanChessClub/kccloot/pkg/util"
 	_ "github.com/go-sql-driver/mysql"
 )
 
